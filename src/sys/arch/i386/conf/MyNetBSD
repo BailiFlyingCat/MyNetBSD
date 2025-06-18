@@ -1,14 +1,15 @@
 #
-# GENERICAHA -- Generic machine w/aha driver -- distribution floppy
+# MyNetBSD -- Generic machine w/aha driver -- distribution floppy
 #
-#	$Id: GENERICAHA,v 1.48.2.4 1994/10/17 21:51:32 cgd Exp $
+#	$Id: MyNetBSD,v 1.48.2.4 1994/10/17 21:51:32 cgd Exp $
+#	derived from GENERICAHA
 #
 
 machine		"i386"
 cpu		"I386_CPU"
 cpu		"I486_CPU"
 cpu		"I586_CPU"
-ident		GENERICAHA
+ident		MyNetBSD
 timezone	0 dst 0
 maxusers	10
 options		SWAPPAGER,VNODEPAGER,DEVPAGER
