@@ -10,7 +10,7 @@
 # If you haven't read README, now might be a good time.
 
 # Include some boilerplate Gnu makefile definitions.
-prefix = /usr/local
+prefix = /usr
 exec_prefix = $(prefix)
 bindir = $(exec_prefix)/bin
 srcdir = .
