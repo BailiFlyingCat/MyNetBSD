@@ -368,7 +368,10 @@ arpresolve(ac, rt, m, dst, desten)
 		if (la->la_asked == 0 || rt->rt_expire != time.tv_sec) {
 			rt->rt_expire = time.tv_sec;
 			if (la->la_asked++ < arp_maxtries)
-				arpwhohas(ac, &(SIN(dst)->sin_addr));
+				arprequest(ac,
+					&SIN(rt->rt_ifa->ifa_addr)->sin_addr,
+					&SIN(dst)->sin_addr,
+					ac->ac_enaddr);
 			else {
 				rt->rt_flags |= RTF_REJECT;
 				rt->rt_expire += arpt_down;
