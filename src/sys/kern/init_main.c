@@ -126,7 +126,7 @@ main(framep)
 
 	vm_mem_init();
 	kmeminit();
-	cpu_startup();
+	cpu_startup();		/* locate and initialize devices */
 
 	/*
 	 * Create process 0 (the swapper).
@@ -230,7 +230,7 @@ main(framep)
 	msginit();
 #endif
 
-	/* Attach pseudo-devices. */
+	/* Attach pseudo-devices. (e.g., SLIP and loopback interfaces) */
 	for (pdev = pdevinit; pdev->pdev_attach != NULL; pdev++)
 		(*pdev->pdev_attach)(pdev->pdev_count);
 
@@ -239,8 +239,8 @@ main(framep)
 	 * until everything is ready.
 	 */
 	s = splimp();
-	ifinit();
-	domaininit();
+	ifinit();			/* initialize network interfaces */
+	domaininit();		/* initialize protocal domains */
 	splx(s);
 
 #ifdef GPROF
