@@ -107,7 +107,7 @@ main(framep)
 	register int i;
 	int s, rval[2];
 	extern int (*mountroot) __P((void));
-	extern struct pdevinit pdevinit[];
+	extern struct pdevinit pdevinit[];		/* 在 ioconf.c 中定义 */
 	extern void roundrobin __P((void *));
 	extern void schedcpu __P((void *));
 
